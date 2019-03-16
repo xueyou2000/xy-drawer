@@ -1,0 +1,93 @@
+$drawerWarpPrefixCls: "xy-drawer";
+
+.#{$drawerWarpPrefixCls} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+
+    .#{$drawerWarpPrefixCls}-mask {
+        background: #000;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: fixed;
+        top: 0;
+        transition: opacity 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), width 0s ease 0.3s, height 0s ease 0.3s;
+    }
+
+    .#{$drawerWarpPrefixCls}-content {
+        position: fixed;
+        background: #fff;
+        transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), opacity 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86), box-shaow 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+    }
+}
+
+.#{$drawerWarpPrefixCls}-open {
+    &.#{$drawerWarpPrefixCls}-left,
+    &.#{$drawerWarpPrefixCls}-right {
+        width: 100%;
+    }
+
+    &.#{$drawerWarpPrefixCls}-top,
+    &.#{$drawerWarpPrefixCls}-bottom {
+        height: 100%;
+    }
+
+    .#{$drawerWarpPrefixCls}-mask {
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;
+        animation: DrawerFadeIn 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+        transition: none;
+    }
+
+    .#{$drawerWarpPrefixCls}-content {
+        box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.#{$drawerWarpPrefixCls}-left {
+    width: 0%;
+    height: 100%;
+
+    .#{$drawerWarpPrefixCls}-content {
+        height: 100%;
+    }
+}
+
+.#{$drawerWarpPrefixCls}-right {
+    width: 0%;
+    height: 100%;
+
+    .#{$drawerWarpPrefixCls}-content {
+        height: 100%;
+    }
+}
+
+.#{$drawerWarpPrefixCls}-top {
+    width: 100%;
+    height: 0%;
+
+    .#{$drawerWarpPrefixCls}-content {
+        width: 100%;
+    }
+}
+
+.#{$drawerWarpPrefixCls}-bottom {
+    width: 100%;
+    height: 0%;
+
+    .#{$drawerWarpPrefixCls}-content {
+        width: 100%;
+    }
+}
+
+@keyframes DrawerFadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}

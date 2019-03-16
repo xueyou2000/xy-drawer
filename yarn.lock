@@ -1660,6 +1660,11 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
+"@types/classnames@^2.2.7":
+  version "2.2.7"
+  resolved "http://registry.npm.taobao.org/@types/classnames/download/@types/classnames-2.2.7.tgz#fb68cc9be8487e6ea5b13700e759bfbab7e0fefd"
+  integrity sha1-+2jMm+hIfm6lsTcA51m/urfg/v0=
+
 "@types/estree@0.0.39":
   version "0.0.39"
   resolved "http://registry.npm.taobao.org/@types/estree/download/@types/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
@@ -3296,7 +3301,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "http://registry.npm.taobao.org/classnames/download/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha1-Q5Nb/90pHzJtrQogUwmzjQD2UM4=
@@ -10743,6 +10748,11 @@ utila@^0.4.0, utila@~0.4:
   version "0.4.0"
   resolved "http://registry.npm.taobao.org/utila/download/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
+
+utils-hooks@^0.0.31:
+  version "0.0.31"
+  resolved "http://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.31.tgz#b4bb847e96ce7f74f3cf5ae65003e31ff18af9fc"
+  integrity sha1-tLuEfpbOf3Tzz1rmUAPjH/GK+fw=
 
 utils-merge@1.0.1:
   version "1.0.1"
