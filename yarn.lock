@@ -8793,6 +8793,13 @@ react-resize-detector@^3.2.1:
     prop-types "^15.6.2"
     resize-observer-polyfill "^1.5.1"
 
+react-spring@^8.0.15:
+  version "8.0.15"
+  resolved "http://registry.npm.taobao.org/react-spring/download/react-spring-8.0.15.tgz#050d54edc334582c858bc100182d37bd7ab61d59"
+  integrity sha1-BQ1U7cM0WCyFi8EAGC03vXq2HVk=
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
   resolved "http://registry.npm.taobao.org/react-syntax-highlighter/download/react-syntax-highlighter-8.1.0.tgz#59103ff17a828a27ed7c8f035ae2558f09b6b78c"
@@ -10749,10 +10756,10 @@ utila@^0.4.0, utila@~0.4:
   resolved "http://registry.npm.taobao.org/utila/download/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
 
-utils-hooks@^0.0.31:
-  version "0.0.31"
-  resolved "http://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.31.tgz#b4bb847e96ce7f74f3cf5ae65003e31ff18af9fc"
-  integrity sha1-tLuEfpbOf3Tzz1rmUAPjH/GK+fw=
+utils-hooks@0.0.32:
+  version "0.0.32"
+  resolved "http://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.32.tgz#882e93efacd9f8884a32abdaa38a18d5932f5a42"
+  integrity sha1-iC6T76zZ+IhKMqvao4oY1ZMvWkI=
 
 utils-merge@1.0.1:
   version "1.0.1"

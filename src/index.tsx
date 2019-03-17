@@ -3,11 +3,13 @@ import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import useControll from "utils-hooks/es/useControll";
 import { DrawerProps, GetDrawerContainerFuc } from "./interface";
+import { useTranstion } from "./useTranstion";
+import { useTrans } from "./useTrans";
 
 function useContainer(getContainer: HTMLElement | GetDrawerContainerFuc) {
     const containerRef = useRef<HTMLElement>(null);
 
-    // 在组件装卸时, 清除 container
+    // 在组件装卸时, 清除再body内创建的 container
     useEffect(() => {
         return () => {
             if (containerRef.current) {
@@ -20,47 +22,61 @@ function useContainer(getContainer: HTMLElement | GetDrawerContainerFuc) {
     if (!getContainer) {
         // 未提供 container 则在Body下创建div作为容器
         if (!containerRef.current) {
-            containerRef.current = document.createElement("div");
-            document.body.append(containerRef.current);
+            container = document.createElement("div");
+            document.body.append(container);
+            containerRef.current = container;
         } else {
             return containerRef.current;
         }
-        container = containerRef.current;
     } else if (getContainer instanceof Function) {
         container = getContainer();
     } else {
         container = getContainer;
     }
 
-    return containerRef.current;
+    return container;
 }
 
-function useFixBodyStyle(open: boolean) {
-    const { body } = document;
+function useChangeStyle(open: boolean, container: HTMLElement | null, getContainer: HTMLElement | GetDrawerContainerFuc) {
+    const containerBody = getContainer ? container : document.body;
+    if (!containerBody) {
+        return;
+    }
     if (open) {
-        body.style.overflow = "hidden";
+        containerBody.style.overflow = "hidden";
     } else {
-        body.style.overflow = null;
+        containerBody.style.overflow = null;
     }
 }
 
 export function Drawer(props: DrawerProps): React.ReactPortal {
     const { prefixCls = "xy-drawer", className, style, defaultOpen, getContainer, moveSelector, width, height, placement = "left", showMask = true, maskClose = true, onChange, children, ...rest } = props;
     const [open, setOpen, isControll] = useControll(props, "open", "defaultOpen", false);
-    const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, {
-        [`${prefixCls}-open`]: open
+    const container = useContainer(getContainer);
+    const [ref, state] = useTrans(open);
+    const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, `state-${state}`, {
+        [`${prefixCls}-open`]: open,
+        "use-container": Boolean(getContainer)
     });
 
     const direction = placement === "left" || placement === "right" ? "X" : "Y";
     const contentStyle: React.CSSProperties = {
         width,
         height,
-        transform: open ? null : `translate${direction}(${placement === "bottom" || placement === "left" ? "-" : ""}100%)`
+        transform: `translate${direction}(${placement === "bottom" || placement === "left" ? "-" : ""}${state.indexOf("en") !== -1 ? "0" : "100"}%)`
     };
 
-    useFixBodyStyle(open);
+    // if (open) {
+    //     if (contentRef.current && moveSelector) {
+    //         const content = contentRef.current as HTMLElement;
+    //         const moveEles = document.querySelectorAll(moveSelector);
+    //         [].forEach.call(moveEles, (ele: HTMLElement) => {
+    //             ele.style.transform = `translate${direction}(${placement === "bottom" || placement === "left" ? "-" : ""}${content.clientWidth})`;
+    //         });
+    //     }
+    // }
 
-    const container = useContainer(getContainer);
+    useChangeStyle(state.indexOf("en") !== -1, container, getContainer);
 
     function handleChange(_open: boolean) {
         if (!isControll) {
@@ -84,7 +100,7 @@ export function Drawer(props: DrawerProps): React.ReactPortal {
     return ReactDOM.createPortal(
         <div className={classString} style={style} {...rest}>
             {showMask && <div className={`${prefixCls}-mask`} onClick={handleMaskClick} />}
-            <div className={`${prefixCls}-content`} style={contentStyle}>
+            <div className={`${prefixCls}-content`} style={contentStyle} ref={ref}>
                 {children}
             </div>
         </div>,

@@ -23,6 +23,15 @@ $drawerWarpPrefixCls: "xy-drawer";
     }
 }
 
+.#{$drawerWarpPrefixCls}.use-container {
+    position: absolute;
+
+    .#{$drawerWarpPrefixCls}-mask,
+    .#{$drawerWarpPrefixCls}-content {
+        position: absolute;
+    }
+}
+
 .#{$drawerWarpPrefixCls}-open {
     &.#{$drawerWarpPrefixCls}-left,
     &.#{$drawerWarpPrefixCls}-right {
@@ -89,5 +98,13 @@ $drawerWarpPrefixCls: "xy-drawer";
     }
     100% {
         opacity: 0.3;
+    }
+}
+
+.#{$drawerWarpPrefixCls} {
+    &.state-entered,
+    &.state-entering,
+    &.state-exiting {
+        width: 100%;
     }
 }
