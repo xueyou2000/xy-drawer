@@ -71,6 +71,7 @@ $drawerWarpPrefixCls: "xy-drawer";
 
     .#{$drawerWarpPrefixCls}-content {
         height: 100%;
+        right: 0;
     }
 }
 
@@ -89,6 +90,7 @@ $drawerWarpPrefixCls: "xy-drawer";
 
     .#{$drawerWarpPrefixCls}-content {
         width: 100%;
+        bottom: 0;
     }
 }
 

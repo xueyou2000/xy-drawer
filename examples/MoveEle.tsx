@@ -6,11 +6,12 @@ export default function() {
 
     return (
         <div>
-            <h1>简单演示</h1>
-            <br/>
+            <h1>推开元素</h1>
             <button onClick={() => setOpen(true)}>点击打开抽屉</button>
+
             <div className="drawer-container" />
-            <Drawer open={open} onChange={setOpen}>
+
+            <Drawer open={open} onChange={setOpen} moveSelector=".drawer-container">
                 <p>抽屉里的内容</p>
             </Drawer>
         </div>

@@ -8,13 +8,13 @@ export default function() {
 
     return (
         <div>
-            <p>指定抽屉所在容器</p>
+            <h1>指定抽屉所在容器</h1>
             <button onClick={() => setOpen(true)}>点击打开抽屉</button>
 
             <div className="drawer-container" ref={ref} />
 
             <Drawer open={open} onChange={setOpen} getContainer={() => ref.current}>
-                <p>抽屉里的内容</p>
+                <p style={{ height: '100%', margin: '0', padding: '10px', background: 'aqua' }}>抽屉里的内容</p>
             </Drawer>
         </div>
     );

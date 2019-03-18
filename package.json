@@ -29,20 +29,20 @@
         "email": "xueyoucd@gmail.com"
     },
     "devDependencies": {
-        "@storybook/addon-actions": "^5.0.1",
-        "@storybook/addon-info": "^5.0.1",
-        "@storybook/cli": "^5.0.1",
-        "@storybook/react": "^5.0.1",
+        "@storybook/addon-actions": "5.0.1",
+        "@storybook/addon-info": "5.0.1",
+        "@storybook/cli": "5.0.1",
+        "@storybook/react": "5.0.1",
         "@types/classnames": "^2.2.7",
-        "@types/jest": "24.0.6",
-        "@types/node": "11.9.4",
-        "@types/react": "16.8.4",
+        "@types/jest": "24.0.11",
+        "@types/node": "11.11.3",
+        "@types/react": "16.8.8",
         "@types/react-dom": "16.8.2",
         "awesome-typescript-loader": "^5.2.1",
         "babel-loader": "^8.0.5",
         "hard-source-webpack-plugin": "^0.13.1",
         "highlight.js": "^9.15.6",
-        "quick-react-scripts": "^1.0.0",
+        "quick-react-scripts": "^1.0.4",
         "react-docgen-typescript-loader": "^3.0.1",
         "react-docgen-typescript-webpack-plugin": "^1.1.0",
         "react-markdown": "^4.0.6",
@@ -54,7 +54,7 @@
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
         "react-spring": "^8.0.15",
-        "utils-hooks": "0.0.32"
+        "utils-hooks": "0.0.36"
     },
     "repository": {
         "type": "git",
