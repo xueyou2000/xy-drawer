@@ -77,6 +77,19 @@ describe("Drawer", () => {
         expect(mask).toBeNull();
     });
 
+    test('mask can not close', () => {
+        const container = document.createElement('div');
+        document.body.append(container);
+        const wrapper = render(<Drawer defaultOpen={true} maskClose={false} getContainer={container}><p>抽屉里的内容</p></Drawer>, { container });
+        const drawer = wrapper.container.querySelector('.xy-drawer');
+        const mask = wrapper.container.querySelector('.xy-drawer-mask');
+
+        // 模拟关闭
+        fireEvent.click(mask);
+        expect(drawer.classList.contains('xy-drawer-open')).toBeTruthy();
+
+    });
+
     test('use width', () => {
         const container = document.createElement('div');
         document.body.append(container);
