@@ -4,110 +4,110 @@ import { useControll, usePortal, useTranstion, ENTERING, EXITED, EXITING } from 
 import { DrawerProps } from "./interface";
 import { DrawerContext, DrawerContextType } from './DrawerContext';
 
-function useDrawerContext() {
+const Transition = 'transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)';
+
+/**
+ * 抽屉嵌套Context
+ * @param state 
+ * @param positived 
+ * @param getTranslate 
+ */
+function useDrawerContext(state: string, positived: boolean, getTranslate: (x: string) => string): [DrawerContextType, React.CSSProperties, DrawerContextType] {
+    const context = useContext(DrawerContext);
     const [count, setCount] = useState(0);
+    const [style, setStyle] = useState<React.CSSProperties>({});
+    const drawerContext = { count, addDrawer, removeDrawer, removeDrawerDone };
 
     function addDrawer() {
+        setStyle({ transform:  getTranslate(`${positived ? "" : "-"}${(count + 1) * 100}px`), transition: Transition, });
         setCount(c => c + 1);
     }
 
     function removeDrawer() {
+        setStyle({ transition: Transition })
         setCount(c => c - 1);
     }
 
-    return { count, addDrawer, removeDrawer };
-}
+    function removeDrawerDone() {
+        setStyle({});
+    }
 
-export function Drawer(props: DrawerProps) {
-    const { prefixCls = "xy-drawer", className, style, getContainer, width, height, placement = "left", showMask = true, maskClose = true, moveSelector, onChange, children, ...rest } = props;
-    const [open, setOpen, isControll] = useControll(props, "open", "defaultOpen", false);
-    const [ref, state] = useTranstion(open);
-    const context = useDrawerContext();
-    const subContext = useContext(DrawerContext);
-    const opening = state.indexOf("en") !== -1;
-    const useFixed = !getContainer;
-    const [renderPortal, container] = usePortal(getContainer);
-    const direction = placement === "left" || placement === "right" ? "X" : "Y";
-    const positived = placement === "top" || placement === "left";
-    const getTranslate = (distance: string) => `translate${direction}(${distance})`;
-    const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, `state-${state}`, {
-        [`${prefixCls}-open`]: open,
-        "use-container": !useFixed
-    });
-    const [drawerStyle, setDrawerStyle] = useState<React.CSSProperties>({});
-
-    const contentStyle: React.CSSProperties = {
-        width,
-        height,
-        transform: getTranslate(`${positived ? "-" : ""}${opening ? 0 : 100}%`)
-    };
-
+    /**
+     * 子抽屉向父级报告状态
+     */
     useEffect(() => {
-        if (context.count > 0) {
-            setDrawerStyle({
-                transform:  getTranslate(`${positived ? "" : "-"}${context.count * 100}px`),
-                transition: 'transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)',
-            });
-        } else {
-            setDrawerStyle({
-                transition: 'transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)',
-            });
+        // 不在嵌套抽屉内则忽略
+        if (!context) { return; }
 
-            setTimeout(() => {
-                setDrawerStyle({});
-            }, 300);
-        }
-    }, [context.count]);
-
-    useEffect(() => {
         if (state === ENTERING) {
-            if (subContext.addDrawer) {
-                subContext.addDrawer();
-            }
+            context.addDrawer();
         } else if (state === EXITING) {
-            if (subContext.removeDrawer) {
-                subContext.removeDrawer();
-            }
+            context.removeDrawer();
+        } else if (state === EXITED) {
+            context.removeDrawerDone();
         }
     }, [state]);
 
+    return [drawerContext, style, context];
+}
+
+function usePlacement(placement: "left" | "top" | "right" | "bottom"): [boolean, (x: string) => string] {
+    const direction = placement === "left" || placement === "right" ? "X" : "Y";
+    const positived = placement === "top" || placement === "left";
+    const getTranslate = (distance: string) => `translate${direction}(${distance})`;
+    return [positived, getTranslate];
+}
+
+export function Drawer(props: DrawerProps) {
+    const { prefixCls = "xy-drawer", defaultOpen, className, style, getContainer, width, height, placement = "left", showMask = true, maskClose = true, moveSelector, onChange, children, ...rest } = props;
+    const [renderPortal, container] = usePortal(getContainer);
+    const [open, setOpen, isControll] = useControll(props, "open", "defaultOpen", false);
+    const [ref, state] = useTranstion(open, true);
+    const [positived, getTranslate] = usePlacement(placement);
+    const [context, drawerStyle, currentContext] = useDrawerContext(state, positived, getTranslate);
+    const opening = state.indexOf("en") !== -1;
+    const useFixed = !getContainer;
+    const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, `state-${state}`, { [`${prefixCls}-open`]: open, "use-container": !useFixed });
+    const contentStyle: React.CSSProperties = { width, height, transform: getTranslate(`${positived ? "-" : ""}${opening ? 0 : 100}%`) };
+
+    /**
+     * 处理推开元素过度样式
+     */
     useEffect(() => {
         const content = ref.current as HTMLElement;
         if (!moveSelector || !content) { return; }
         const moveEles = document.querySelectorAll(moveSelector);
 
-        // open
-        if (state.indexOf("en") !== -1) {
+        function setMoveElesStyle(sty: React.CSSProperties) {
             [].forEach.call(moveEles, (ele: HTMLElement) => {
-                ele.style.transform = getTranslate(`${positived ? "" : "-"}${content.clientWidth}px`);
-                ele.style.transition = 'transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)';
+                for (let key in sty) {
+                    ele.style[key] = sty[key];
+                }
             });
-        } else {
-            if (state === EXITED) {
-                [].forEach.call(moveEles, (ele: HTMLElement) => {
-                    ele.style.transform = null;
-                    ele.style.transition = null;
-                });
-            } else {
-                [].forEach.call(moveEles, (ele: HTMLElement) => {
-                    ele.style.transform = getTranslate(`${positived ? "" : "-"}${0}px`);;
-                });
-            }
         }
-    }, [moveSelector, state]);
 
+        if (state.indexOf("en") !== -1) {
+            setMoveElesStyle({ transform: getTranslate(`${positived ? "" : "-"}${content.clientWidth}px`), transition: Transition,});
+        } else if (state === EXITED) {
+            setMoveElesStyle({ transform: null, transition: null, });
+        } else {
+            setMoveElesStyle({ transform:  getTranslate(`${positived ? "" : "-"}${0}px`),});
+        }
+    }, [state]);
+
+    /**
+     * 处理 Container 滚动条的隐藏和还原
+     */
     useEffect(() => {
         const scrollContainer = useFixed ? document.body : container;
         if (scrollContainer) {
             if (opening) {
                 scrollContainer.style.overflow = "hidden";
-            } else {
-                if (context.count - 1 <= 0) {
-                    scrollContainer.style.overflow = null;
-                }
+            } else if (state === EXITED && currentContext === null) {
+                scrollContainer.style.overflow = null;
             }
         }
-    }, [opening, context.count]);
+    }, [state]);
 
     function handleChange(_open: boolean) {
         if (!isControll) {

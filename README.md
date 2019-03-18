@@ -43,10 +43,10 @@
 
 ```sh
 # npm
-npm install --save xy-drawer
+npm install --save xy-drawer classnames utils-hooks
 
 # yarn
-yarn add xy-drawer
+yarn add xy-drawer classnames utils-hooks
 ```
 
 ## 使用
@@ -55,7 +55,7 @@ yarn add xy-drawer
 import React from "react";
 import ReactDOM from "react-dom";
 import Drawer from "xy-drawer";
-ReactDOM.render(<Drawer />, container);
+ReactDOM.render(<Drawer open={true} />, container);
 ```
 
 ## 开发
