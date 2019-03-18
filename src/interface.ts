@@ -14,6 +14,10 @@ export interface DrawerProps {
      */
     style?: React.CSSProperties;
     /**
+     * ID
+     */
+    id?: string;
+    /**
      * 抽屉是否打开
      */
     open?: boolean;
