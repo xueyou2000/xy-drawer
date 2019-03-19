@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.0 (Mon Mar 18 2019)
+
+-   更新`utils-hooks`依赖
+
 ## 0.0.9 (Mon Mar 18 2019)
 
 -   基本实现Drawer组件
