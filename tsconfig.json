@@ -2,13 +2,14 @@
     "compilerOptions": {
         "baseUrl": "./",
         "outDir": "es",
-        "target": "esnext",
+        "target": "es5",
         "module": "esnext",
         "declaration": true,
         "skipLibCheck": true,
         "sourceMap": true,
         "jsx": "react",
         "strict": false,
+        "importHelpers": true,
         "lib": ["dom", "esnext"],
         "noFallthroughCasesInSwitch": true,
         "moduleResolution": "node",
@@ -17,7 +18,6 @@
         },
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true,
-        "rootDirs": ["src", ".storybook", "examples"],
         "forceConsistentCasingInFileNames": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true

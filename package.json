@@ -1,6 +1,6 @@
 {
     "name": "xy-drawer",
-    "version": "0.0.8",
+    "version": "0.0.9",
     "description": "基于React的基础组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -54,7 +54,7 @@
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
         "react-spring": "^8.0.15",
-        "utils-hooks": "0.0.38"
+        "utils-hooks": "0.0.39"
     },
     "repository": {
         "type": "git",

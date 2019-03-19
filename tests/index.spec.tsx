@@ -1,6 +1,5 @@
 import React from "react";
 import { render, fireEvent } from "react-testing-library";
-import { ENTERING, ENTERED, EXITED, EXITING } from "utils-hooks";
 import Drawer from "../src";
 
 describe("Drawer", () => {
