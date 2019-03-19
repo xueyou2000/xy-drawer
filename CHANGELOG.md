@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.1 (Mon Mar 18 2019)
+
+-   修复IE下`style.overflow = null`无效问题
+
 ## 1.0.0 (Mon Mar 18 2019)
 
 -   更新`utils-hooks`依赖

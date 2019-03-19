@@ -1,6 +1,6 @@
 {
     "name": "xy-drawer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "基于React的基础组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",

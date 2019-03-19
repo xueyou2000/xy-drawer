@@ -58,7 +58,7 @@ export function Drawer(props: DrawerProps) {
             if (opening) {
                 scrollContainer.style.overflow = "hidden";
             } else if (state === EXITED && currentContext === null) {
-                scrollContainer.style.overflow = null;
+                scrollContainer.style.overflow = "auto";
             }
         }
     }, [state]);
