@@ -1,8 +1,13 @@
 # Change Log
 
+## 1.0.2 (Wed Mar 20 2019)
+
+-   修复嵌套抽屉时, 前推动画的距离计算问题
+-   将抽屉显示, 隐藏的动画逻辑抽离出来, 由 css 去控制, 方便自定义动画
+
 ## 1.0.1 (Mon Mar 18 2019)
 
--   修复IE下`style.overflow = null`无效问题
+-   修复 IE 下`style.overflow = null`无效问题
 
 ## 1.0.0 (Mon Mar 18 2019)
 
@@ -10,7 +15,7 @@
 
 ## 0.0.9 (Mon Mar 18 2019)
 
--   基本实现Drawer组件
+-   基本实现 Drawer 组件
 -   更改输出目标`esnext`为`es5`
 -   默认使用`es`模块
 

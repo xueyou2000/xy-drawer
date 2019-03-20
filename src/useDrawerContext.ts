@@ -1,29 +1,43 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ENTERING, EXITED, EXITING } from "utils-hooks";
-import { DrawerContext, DrawerContextType } from './DrawerContext';
+import { DrawerContext, DrawerContextType } from "./DrawerContext";
 
-export const Transition = 'transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)';
+export const Transition = "transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)";
 
 /**
  * 抽屉嵌套Context
- * @param state 
- * @param positived 
- * @param getTranslate 
+ * @param state
+ * @param positived
+ * @param getTranslate
  */
-export function useDrawerContext(state: string, positived: boolean, getTranslate: (x: string) => string): [DrawerContextType, React.CSSProperties, DrawerContextType] {
+export function useDrawerContext(state: string, positived: boolean, getTranslate: (x: string) => string, id: string): [DrawerContextType, React.CSSProperties, DrawerContextType] {
     const context = useContext(DrawerContext);
     const [count, setCount] = useState(0);
     const [style, setStyle] = useState<React.CSSProperties>({});
     const drawerContext = { count, addDrawer, removeDrawer, removeDrawerDone };
 
+    function setTranslate(c: number) {
+        if (c <= 0) {
+            setStyle({ transition: Transition });
+        } else {
+            setStyle({ transform: getTranslate(`${positived ? "" : "-"}${c * 100}px`), transition: Transition });
+        }
+    }
+
     function addDrawer() {
-        setStyle({ transform:  getTranslate(`${positived ? "" : "-"}${(count + 1) * 100}px`), transition: Transition, });
-        setCount(c => c + 1);
+        setTranslate(count + 1);
+        setCount((c) => c + 1);
+        if (context) {
+            context.addDrawer();
+        }
     }
 
     function removeDrawer() {
-        setStyle({ transition: Transition })
-        setCount(c => c - 1);
+        setTranslate(count - 1);
+        setCount((c) => c - 1);
+        if (context) {
+            context.removeDrawer();
+        }
     }
 
     function removeDrawerDone() {
@@ -35,7 +49,9 @@ export function useDrawerContext(state: string, positived: boolean, getTranslate
      */
     useEffect(() => {
         // 不在嵌套抽屉内则忽略
-        if (!context) { return; }
+        if (!context) {
+            return;
+        }
 
         if (state === ENTERING) {
             context.addDrawer();

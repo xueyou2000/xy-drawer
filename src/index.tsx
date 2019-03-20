@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import React, { useEffect } from "react";
 import { EXITED, useControll, usePortal, useTranstion } from "utils-hooks";
-import { DrawerContext } from './DrawerContext';
+import { DrawerContext } from "./DrawerContext";
 import { DrawerProps } from "./interface";
-import { Transition, useDrawerContext } from './useDrawerContext';
+import { Transition, useDrawerContext } from "./useDrawerContext";
 
 function usePlacement(placement: "left" | "top" | "right" | "bottom"): [boolean, (x: string) => string] {
     const direction = placement === "left" || placement === "right" ? "X" : "Y";
@@ -18,18 +18,21 @@ export function Drawer(props: DrawerProps) {
     const [open, setOpen, isControll] = useControll(props, "open", "defaultOpen", false);
     const [ref, state] = useTranstion(open, true);
     const [positived, getTranslate] = usePlacement(placement);
-    const [context, drawerStyle, currentContext] = useDrawerContext(state, positived, getTranslate);
+    const [context, drawerStyle, currentContext] = useDrawerContext(state, positived, getTranslate, props.id);
     const opening = state.indexOf("en") !== -1;
     const useFixed = !getContainer;
-    const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, `state-${state}`, { [`${prefixCls}-open`]: open, "use-container": !useFixed });
-    const contentStyle: React.CSSProperties = { width, height, transform: getTranslate(`${positived ? "-" : ""}${opening ? 0 : 100}%`) };
+    // transform: getTranslate(`${positived ? "-" : ""}${opening ? 0 : 100}%`)
+    const contentStyle: React.CSSProperties = { width, height };
+    const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, `state-${state}`, { [`${prefixCls}-open`]: opening, "use-container": !useFixed });
 
     /**
      * 处理推开元素过度样式
      */
     useEffect(() => {
         const content = ref.current as HTMLElement;
-        if (!moveSelector || !content) { return; }
+        if (!moveSelector || !content) {
+            return;
+        }
         const moveEles = document.querySelectorAll(moveSelector);
 
         function setMoveElesStyle(sty: React.CSSProperties) {
@@ -41,11 +44,11 @@ export function Drawer(props: DrawerProps) {
         }
 
         if (state.indexOf("en") !== -1) {
-            setMoveElesStyle({ transform: getTranslate(`${positived ? "" : "-"}${content.clientWidth}px`), transition: Transition,});
+            setMoveElesStyle({ transform: getTranslate(`${positived ? "" : "-"}${content.clientWidth}px`), transition: Transition });
         } else if (state === EXITED) {
-            setMoveElesStyle({ transform: null, transition: null, });
+            setMoveElesStyle({ transform: null, transition: null });
         } else {
-            setMoveElesStyle({ transform:  getTranslate(`${positived ? "" : "-"}${0}px`),});
+            setMoveElesStyle({ transform: getTranslate(`${positived ? "" : "-"}${0}px`) });
         }
     }, [state]);
 
