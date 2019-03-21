@@ -8773,13 +8773,6 @@ react-resize-detector@^3.2.1:
     prop-types "^15.6.2"
     resize-observer-polyfill "^1.5.1"
 
-react-spring@^8.0.15:
-  version "8.0.15"
-  resolved "http://registry.npm.taobao.org/react-spring/download/react-spring-8.0.15.tgz#050d54edc334582c858bc100182d37bd7ab61d59"
-  integrity sha1-BQ1U7cM0WCyFi8EAGC03vXq2HVk=
-  dependencies:
-    "@babel/runtime" "^7.3.1"
-
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
   resolved "http://registry.npm.taobao.org/react-syntax-highlighter/download/react-syntax-highlighter-8.1.0.tgz#59103ff17a828a27ed7c8f035ae2558f09b6b78c"
