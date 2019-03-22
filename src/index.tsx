@@ -4,6 +4,7 @@ import { EXITED, useControll, usePortal, useTranstion } from "utils-hooks";
 import { DrawerContext } from "./DrawerContext";
 import { DrawerProps } from "./interface";
 import { Transition, useDrawerContext } from "./useDrawerContext";
+export * from "./PopDrawer";
 
 function usePlacement(placement: "left" | "top" | "right" | "bottom"): [boolean, (x: string) => string] {
     const direction = placement === "left" || placement === "right" ? "X" : "Y";
@@ -13,7 +14,7 @@ function usePlacement(placement: "left" | "top" | "right" | "bottom"): [boolean,
 }
 
 export function Drawer(props: DrawerProps) {
-    const { prefixCls = "xy-drawer", defaultOpen, className, style, getContainer, width, height, placement = "left", showMask = true, maskClose = true, moveSelector, onChange, children, ...rest } = props;
+    const { prefixCls = "xy-drawer", defaultOpen, className, style, getContainer, width, height, placement = "left", showMask = true, maskClose = true, moveSelector, onChange, children, onUnmount, ...rest } = props;
     const [renderPortal, container] = usePortal(getContainer);
     const [open, setOpen, isControll] = useControll(props, "open", "defaultOpen", false);
     const [ref, state] = useTranstion(open, true);
@@ -63,6 +64,12 @@ export function Drawer(props: DrawerProps) {
             } else if (state === EXITED && currentContext === null) {
                 scrollContainer.style.overflow = "auto";
             }
+        }
+    }, [state]);
+
+    useEffect(() => {
+        if (state === EXITED && onUnmount) {
+            onUnmount();
         }
     }, [state]);
 

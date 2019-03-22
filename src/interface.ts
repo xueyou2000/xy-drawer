@@ -72,4 +72,8 @@ export interface DrawerProps {
      * @description 可用于Esc关闭抽屉
      */
     onKeyPress?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+    /**
+     * 通知关闭动画结束
+     */
+    onUnmount?: Function;
 }

@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import Drawer from "../src";
-import "./index.scss";
 
 export default function() {
     const ref = useRef();
@@ -14,7 +13,7 @@ export default function() {
             <div className="drawer-container" ref={ref} />
 
             <Drawer open={open} onChange={setOpen} getContainer={() => ref.current}>
-                <p style={{ height: '100%', margin: '0', padding: '10px', background: 'aqua' }}>抽屉里的内容</p>
+                <p style={{ height: "100%", margin: "0", padding: "10px", background: "aqua" }}>抽屉里的内容</p>
             </Drawer>
         </div>
     );

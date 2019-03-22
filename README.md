@@ -51,11 +51,23 @@ yarn add xy-drawer classnames utils-hooks
 
 ## 使用
 
-```ts
+```tsx
 import React from "react";
 import ReactDOM from "react-dom";
 import Drawer from "xy-drawer";
 ReactDOM.render(<Drawer open={true} />, container);
+```
+
+## js 方式调用
+
+```tsx
+import React from "react";
+import ReactDOM from "react-dom";
+import { popDrawer } from "xy-drawer";
+
+popDrawer({
+    children: <p>js弹出的抽屉</p>
+});
 ```
 
 ## 开发
