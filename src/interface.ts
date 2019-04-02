@@ -56,6 +56,10 @@ export interface DrawerProps {
      */
     placement?: "left" | "top" | "right" | "bottom";
     /**
+     * 是否固定
+     */
+    fixed?: boolean;
+    /**
      * 是否显示蒙层
      */
     showMask?: boolean;

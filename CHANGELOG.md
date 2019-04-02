@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.0.5 (Tue Apr 02 2019)
+
+-   增加 `fixed` 属性
+
 ## 1.0.4 (Fri Mar 22 2019)
 
 -   增加 js 方式调出抽屉

@@ -6,7 +6,7 @@ export default function() {
 
     return (
         <div>
-            <div>
+            <div className="move">
                 <h1>推开元素</h1>
                 <button onClick={() => setOpen(true)}>点击打开抽屉</button>
 

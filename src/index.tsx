@@ -14,14 +14,14 @@ function usePlacement(placement: "left" | "top" | "right" | "bottom"): [boolean,
 }
 
 export function Drawer(props: DrawerProps) {
-    const { prefixCls = "xy-drawer", defaultOpen, className, style, getContainer, width, height, placement = "left", showMask = true, maskClose = true, moveSelector, onChange, children, onUnmount, ...rest } = props;
+    const { prefixCls = "xy-drawer", defaultOpen, className, style, getContainer, width, height, fixed = true, placement = "left", showMask = true, maskClose = true, moveSelector, onChange, children, onUnmount, ...rest } = props;
     const [renderPortal, container] = usePortal(getContainer);
     const [open, setOpen, isControll] = useControll(props, "open", "defaultOpen", false);
     const [ref, state] = useTranstion(open, true);
     const [positived, getTranslate] = usePlacement(placement);
     const [context, drawerStyle, currentContext] = useDrawerContext(state, positived, getTranslate, props.id);
     const opening = state.indexOf("en") !== -1;
-    const useFixed = !getContainer;
+    const useFixed = fixed;
     // transform: getTranslate(`${positived ? "-" : ""}${opening ? 0 : 100}%`)
     const contentStyle: React.CSSProperties = { width, height };
     const classString = classNames(prefixCls, className, `${prefixCls}-${placement}`, `state-${state}`, { [`${prefixCls}-open`]: opening, "use-container": !useFixed });
