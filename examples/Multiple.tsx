@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Drawer from "../src";
+import { Drawer } from "../src";
 
 export default function() {
     const [open, setOpen] = useState(false);

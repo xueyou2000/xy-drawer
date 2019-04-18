@@ -1,9 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Drawer from "./index";
+import Drawer from "./Drawer";
 import { DrawerProps } from "./interface";
 
-export function popDrawer(config: DrawerProps) {
+/**
+ * js方式弹出抽屉
+ * @param config
+ */
+export default function DrawerPopup(config: DrawerProps) {
     const div = document.createElement("div");
     document.body.appendChild(div);
 

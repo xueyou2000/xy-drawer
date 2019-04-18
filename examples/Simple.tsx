@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Drawer from "../src";
+import { Drawer } from "../src";
 
 export default function() {
     const [open, setOpen] = useState(false);
@@ -7,7 +7,7 @@ export default function() {
     return (
         <div>
             <h1>简单演示</h1>
-            <br/>
+            <br />
             <button onClick={() => setOpen(true)}>点击打开抽屉</button>
             <div className="drawer-container" />
             <Drawer open={open} onChange={setOpen}>

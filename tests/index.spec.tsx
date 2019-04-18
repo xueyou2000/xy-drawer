@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "react-testing-library";
-import Drawer from "../src";
+import { Drawer } from "../src";
 
 describe("Drawer", () => {
     test("render by default open", () => {

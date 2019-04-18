@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import Drawer from "../src";
+import { Drawer } from "../src";
 import "./index.scss";
 
 export default function() {

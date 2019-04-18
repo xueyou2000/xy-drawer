@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ENTERING, EXITED, EXITING } from "utils-hooks";
-import { DrawerContext, DrawerContextType } from "./DrawerContext";
+import { DrawerContext } from "../Context";
+import { DrawerContextState } from "../interface";
 
 export const Transition = "transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)";
 
@@ -10,7 +11,7 @@ export const Transition = "transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)";
  * @param positived
  * @param getTranslate
  */
-export function useDrawerContext(state: string, positived: boolean, getTranslate: (x: string) => string, id: string): [DrawerContextType, React.CSSProperties, DrawerContextType] {
+export function useDrawerContext(state: string, positived: boolean, getTranslate: (x: string) => string): [DrawerContextState, React.CSSProperties, DrawerContextState] {
     const context = useContext(DrawerContext);
     const [count, setCount] = useState(0);
     const [style, setStyle] = useState<React.CSSProperties>({});

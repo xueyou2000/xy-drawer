@@ -3,7 +3,7 @@ import { addParameters, configure, storiesOf } from "@storybook/react";
 import { withInfo } from "@storybook/addon-info";
 import readme from "../README.md";
 import Markdown from "./component/MyMarkdown";
-import { Drawer } from "../src";
+import { Drawer } from "../src/Drawer";
 import "./index.css";
 import "../src/assets/index.scss";
 

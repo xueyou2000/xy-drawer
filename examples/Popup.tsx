@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { popDrawer } from "../src";
+import { DrawerPopup } from "../src";
 
 export default function() {
     function pop() {
-        popDrawer({
+        DrawerPopup({
             children: <p>js弹出的抽屉</p>
         });
     }

@@ -5188,6 +5188,11 @@ hard-source-webpack-plugin@^0.13.1:
     webpack-sources "^1.0.1"
     write-json-file "^2.3.0"
 
+harmony-reflect@^1.4.6:
+  version "1.6.1"
+  resolved "http://registry.npm.taobao.org/harmony-reflect/download/harmony-reflect-1.6.1.tgz#c108d4f2bb451efef7a37861fdbdae72c9bdefa9"
+  integrity sha1-wQjU8rtFHv73o3hh/b2ucsm976k=
+
 has-ansi@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/has-ansi/download/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
@@ -5462,6 +5467,13 @@ icss-utils@^4.1.0:
   integrity sha1-M527/7n4cpokO3AeHCnUzFjFLw4=
   dependencies:
     postcss "^7.0.14"
+
+identity-obj-proxy@^3.0.0:
+  version "3.0.0"
+  resolved "http://registry.npm.taobao.org/identity-obj-proxy/download/identity-obj-proxy-3.0.0.tgz#94d2bda96084453ef36fbc5aaec37e0f79f1fc14"
+  integrity sha1-lNK9qWCERT7zb7xarsN+D3nx/BQ=
+  dependencies:
+    harmony-reflect "^1.4.6"
 
 ieee754@^1.1.4:
   version "1.1.12"
@@ -6370,6 +6382,11 @@ jest-snapshot@^24.5.0:
     natural-compare "^1.4.0"
     pretty-format "^24.5.0"
     semver "^5.5.0"
+
+jest-svg-transformer@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/jest-svg-transformer/download/jest-svg-transformer-1.0.0.tgz#e38884ca4cd8b2295cdfa2a0b24667920c3a8a6d"
+  integrity sha1-44iEykzYsilc36KgskZnkgw6im0=
 
 jest-util@^24.5.0:
   version "24.5.0"
@@ -8465,10 +8482,10 @@ querystringify@^2.0.0:
   resolved "http://registry.npm.taobao.org/querystringify/download/querystringify-2.1.0.tgz#7ded8dfbf7879dcc60d0a644ac6754b283ad17ef"
   integrity sha1-fe2N+/eHncxg0KZErGdUsoOtF+8=
 
-quick-react-scripts@^1.0.4:
-  version "1.0.4"
-  resolved "http://registry.npm.taobao.org/quick-react-scripts/download/quick-react-scripts-1.0.4.tgz#650de2c8a6a312f92e338db03108beee303b2e2a"
-  integrity sha1-ZQ3iyKajEvkuM42wMQi+7jA7Lio=
+quick-react-scripts@1.0.9:
+  version "1.0.9"
+  resolved "http://registry.npm.taobao.org/quick-react-scripts/download/quick-react-scripts-1.0.9.tgz#72ea6267d757d443191ee96404831122fb6c77de"
+  integrity sha1-cupiZ9dX1EMZHulkBIMRIvtsd94=
   dependencies:
     "@babel/core" "^7.3.4"
     "@babel/preset-env" "^7.3.4"
@@ -8483,7 +8500,9 @@ quick-react-scripts@^1.0.4:
     cross-spawn "^6.0.5"
     envinfo "^7.1.0"
     fs-extra "^7.0.1"
+    identity-obj-proxy "^3.0.0"
     jest "^24.3.1"
+    jest-svg-transformer "^1.0.0"
     ora "^3.2.0"
     react-testing-library "^6.0.0"
     rollup "^1.6.0"
@@ -10729,10 +10748,10 @@ utila@^0.4.0, utila@~0.4:
   resolved "http://registry.npm.taobao.org/utila/download/utila-0.4.0.tgz#8a16a05d445657a3aea5eecc5b12a4fa5379772c"
   integrity sha1-ihagXURWV6Oupe7MWxKk+lN5dyw=
 
-utils-hooks@0.0.40:
-  version "0.0.40"
-  resolved "http://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.40.tgz#980fe755ee839d314cdfee8ba4942012b7ca8ff9"
-  integrity sha1-mA/nVe6DnTFM3+6LpJQgErfKj/k=
+utils-hooks@0.0.60:
+  version "0.0.60"
+  resolved "http://registry.npm.taobao.org/utils-hooks/download/utils-hooks-0.0.60.tgz#37fe4934cac783d16eba308aebb83ae64a9be755"
+  integrity sha1-N/5JNMrHg9FuujCK67g65kqb51U=
 
 utils-merge@1.0.1:
   version "1.0.1"

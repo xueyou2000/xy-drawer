@@ -1,7 +1,7 @@
 {
     "name": "xy-drawer",
-    "version": "1.0.5",
-    "description": "基于React的基础组件",
+    "version": "1.1.0",
+    "description": "基于React的抽屉组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
     "module": "es/index.js",
@@ -42,7 +42,7 @@
         "babel-loader": "^8.0.5",
         "hard-source-webpack-plugin": "^0.13.1",
         "highlight.js": "^9.15.6",
-        "quick-react-scripts": "^1.0.4",
+        "quick-react-scripts": "1.0.9",
         "react-docgen-typescript-loader": "^3.0.1",
         "react-docgen-typescript-webpack-plugin": "^1.1.0",
         "react-markdown": "^4.0.6",
@@ -53,7 +53,7 @@
         "classnames": "^2.2.6",
         "react": "^16.8.2",
         "react-dom": "^16.8.2",
-        "utils-hooks": "0.0.40"
+        "utils-hooks": "0.0.60"
     },
     "repository": {
         "type": "git",
@@ -61,7 +61,7 @@
     },
     "jest": {
         "transformIgnorePatterns": [
-            "<rootDir>/node_modules/(?!(utils-hooks|utils-dom))"
+            "<rootDir>/node_modules/(?!(utils-hooks))"
         ]
     }
 }
