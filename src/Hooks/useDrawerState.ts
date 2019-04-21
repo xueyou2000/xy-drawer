@@ -6,7 +6,7 @@ export type UseDrawerStateReturn = [React.MutableRefObject<undefined>, string, b
 
 export default function useDrawerState(open: boolean, props: DrawerProps): UseDrawerStateReturn {
     const { placement = "left" } = props;
-    const [ref, state] = useTranstion(open, true);
+    const [ref, state] = useTranstion(open);
     const opening = state.indexOf("en") !== -1;
     const [positived, getTranslate] = calcPlacement(placement);
 
