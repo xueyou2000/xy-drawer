@@ -43,10 +43,10 @@
 
 ```sh
 # npm
-npm install --save xy-drawer classnames utils-hooks
+npm install --save xy-drawer utils-hooks classnames
 
 # yarn
-yarn add xy-drawer classnames utils-hooks
+yarn add xy-drawer utils-hooks classnames
 ```
 
 ## 使用
