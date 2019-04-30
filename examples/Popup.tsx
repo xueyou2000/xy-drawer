@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DrawerPopup } from "../src";
+import "../src/assets/index";
 
 export default function() {
     function pop() {
@@ -10,10 +11,7 @@ export default function() {
 
     return (
         <div>
-            <h1>js主动弹出</h1>
-            <br />
             <button onClick={pop}>点击打开抽屉</button>
-            <div className="drawer-container" />
         </div>
     );
 }

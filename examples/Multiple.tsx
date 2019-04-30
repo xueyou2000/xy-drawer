@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { Drawer } from "../src";
+import "../src/assets/index";
 
 export default function() {
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [open3, setOpen3] = useState(false);
 
+    const container = document.querySelector(".xy-manual-container") as HTMLElement;
+    if (container) {
+        container.style.transform = `rotateY(${open ? "-16" : "0"}deg)`;
+    }
+
     return (
         <div style={{ perspective: "1500px" }}>
-            <div className="move" style={{ transform: `rotateY(${open ? "-16" : "0"}deg)`, transition: "0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86)" }}>
+            <div>
                 <h1>多个抽屉嵌套</h1>
                 <br />
                 <button onClick={() => setOpen(true)}>点击打开抽屉</button>
-                <div className="drawer-container" />
 
                 <Drawer open={open} onChange={setOpen} id="抽屉1">
                     <p>抽屉1内容</p>

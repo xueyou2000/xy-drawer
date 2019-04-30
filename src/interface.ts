@@ -77,7 +77,7 @@ export interface DrawerProps {
      */
     onKeyPress?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
     /**
-     * 通知关闭动画结束
+     * 关闭动画结束
      */
     onUnmount?: Function;
 }

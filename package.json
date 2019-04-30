@@ -1,12 +1,16 @@
 {
     "name": "xy-drawer",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "description": "基于React的抽屉组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
     "module": "es/index.js",
     "publisher": "XueYou",
     "license": "MIT",
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
     "files": [
         "es",
         "dist",
@@ -15,8 +19,8 @@
     "scripts": {
         "test": "quick-react-scripts test",
         "build": "quick-react-scripts build",
-        "start": "start-storybook -p 6006",
-        "build:storybook": "build-storybook",
+        "start": "xy-manual-tools start -p 6006",
+        "build:demo": "xy-manual-tools build",
         "_publish": "yarn run test && yarn run build && npm publish"
     },
     "keywords": [
@@ -29,25 +33,14 @@
         "email": "xueyoucd@gmail.com"
     },
     "devDependencies": {
-        "@storybook/addon-actions": "5.0.1",
-        "@storybook/addon-info": "5.0.1",
-        "@storybook/cli": "5.0.1",
-        "@storybook/react": "5.0.1",
         "@types/classnames": "^2.2.7",
         "@types/jest": "24.0.11",
         "@types/node": "11.11.3",
         "@types/react": "16.8.8",
         "@types/react-dom": "16.8.2",
-        "awesome-typescript-loader": "^5.2.1",
-        "babel-loader": "^8.0.5",
-        "hard-source-webpack-plugin": "^0.13.1",
-        "highlight.js": "^9.15.6",
-        "quick-react-scripts": "1.0.9",
-        "react-docgen-typescript-loader": "^3.0.1",
-        "react-docgen-typescript-webpack-plugin": "^1.1.0",
-        "react-markdown": "^4.0.6",
+        "quick-react-scripts": "1.1.2",
         "react-testing-library": "^6.0.0",
-        "sass-loader": "^7.1.0"
+        "xy-manual-tools": "0.0.5"
     },
     "dependencies": {
         "classnames": "^2.2.6",

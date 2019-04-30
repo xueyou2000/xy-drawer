@@ -1,0 +1,9 @@
+{
+  "components.css": "css/components.ce5f7100d69ec53b221a.css",
+  "components.js": "js/components.chunk.js",
+  "main.js": "js/main.chunk.js",
+  "runtime.js": "js/runtime.js",
+  "../node_modules/xy-manual-tools/manual/Config/index.d.ts": "../node_modules/xy-manual-tools/manual/Config/index.d.ts",
+  "index.html": "index.html",
+  "static/js/polyfill.js": "static/js/polyfill.js"
+}

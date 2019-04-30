@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Simple",
+        "title": "简单使用",
+        "desc": "通过设置 open 属性，来切换打开/关闭抽屉"
+    },
+    {
+        "name": "Popup",
+        "title": "js调用",
+        "desc": "js代码主动调用抽屉"
+    },
+    {
+        "name": "Placement",
+        "title": "抽屉方向",
+        "desc": "设置placement控制抽屉打开方向， 有4个方向可用：left | top | right | bottom"
+    },
+    {
+        "name": "Multiple",
+        "title": "嵌套抽屉",
+        "desc": "嵌套抽屉, 后面打开的抽屉会把前面的抽屉往前推"
+    },
+    {
+        "name": "MoveEle",
+        "title": "推开元素",
+        "desc": "抽屉打开时，推开某些dom元素"
+    },
+    {
+        "name": "GetContainer",
+        "title": "指定容器",
+        "desc": "抽屉在指定容器内打开"
+    }
+]
