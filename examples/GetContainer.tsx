@@ -4,7 +4,7 @@ import "../src/assets/index";
 import "./index.scss";
 
 export default function() {
-    const ref = useRef();
+    const ref = useRef(null);
     const [open, setOpen] = useState(false);
 
     return (
