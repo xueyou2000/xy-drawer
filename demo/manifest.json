@@ -1,8 +1,9 @@
 {
-  "components.css": "css/components.dc5779b5c907fbe99a35.css",
+  "components.css": "css/components.123f03aaaa8f2b63118b.css",
   "components.js": "js/components.chunk.js",
-  "main.js": "js/main.chunk.js",
   "runtime.js": "js/runtime.js",
+  "assete.js": "js/assete.chunk.js",
+  "demo.js": "js/demo.chunk.js",
   "index.html": "index.html",
   "static/js/polyfill.js": "static/js/polyfill.js"
 }

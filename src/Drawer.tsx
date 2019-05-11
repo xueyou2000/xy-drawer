@@ -29,10 +29,11 @@ export function Drawer(props: DrawerProps) {
         }
     }
 
-    function handleMaskClick() {
+    function handleMaskClick(e: React.MouseEvent<HTMLElement>) {
         if (maskClose) {
             handleChange(false);
         }
+        e.stopPropagation();
     }
 
     return renderPortal(
@@ -43,7 +44,7 @@ export function Drawer(props: DrawerProps) {
                     {children}
                 </div>
             </div>
-        </DrawerContext.Provider>
+        </DrawerContext.Provider>,
     );
 }
 

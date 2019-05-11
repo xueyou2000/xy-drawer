@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.2.2 (Sat May 11 2019)
+
+-   更新依赖
+-   点击遮罩层防止事件冒泡
+
 ## 1.2.1 (Sun May 05 2019)
 
 -   更新`xy-manual-tools`, 修复编译 demo
