@@ -1,6 +1,6 @@
 {
     "name": "xy-drawer",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "基于React的抽屉组件",
     "types": "es/index.d.ts",
     "main": "es/index.js",
@@ -33,20 +33,20 @@
         "email": "xueyoucd@gmail.com"
     },
     "devDependencies": {
-        "@types/classnames": "^2.2.7",
-        "@types/jest": "24.0.11",
-        "@types/node": "11.11.3",
-        "@types/react": "16.8.2",
-        "@types/react-dom": "16.8.2",
-        "quick-react-scripts": "1.1.9",
-        "react-testing-library": "^6.0.0",
-        "xy-manual-tools": "0.1.4"
+        "@testing-library/react": "^9.1.4",
+        "@types/classnames": "^2.2.9",
+        "@types/jest": "24.0.18",
+        "@types/node": "12.7.4",
+        "@types/react": "16.9.2",
+        "@types/react-dom": "16.9.0",
+        "quick-react-scripts": "^1.2.2",
+        "xy-manual-tools": "^0.1.65"
     },
     "dependencies": {
         "classnames": "^2.2.6",
-        "react": "^16.8.2",
-        "react-dom": "^16.8.2",
-        "utils-hooks": "0.0.69"
+        "react": "^16.9.0",
+        "react-dom": "^16.9.0",
+        "utils-hooks": "^0.0.71"
     },
     "repository": {
         "type": "git",

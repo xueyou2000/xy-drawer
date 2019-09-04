@@ -1,5 +1,5 @@
 import React from "react";
-import { render, fireEvent } from "react-testing-library";
+import { render, fireEvent } from "@testing-library/react";
 import { Drawer } from "../src";
 
 describe("Drawer", () => {
@@ -10,7 +10,7 @@ describe("Drawer", () => {
             <Drawer defaultOpen={true} getContainer={container}>
                 <p>抽屉里的内容</p>
             </Drawer>,
-            { container }
+            { container },
         );
 
         const content = wrapper.getByText("抽屉里的内容").parentElement;
@@ -77,7 +77,7 @@ describe("Drawer", () => {
             <Drawer defaultOpen={true} showMask={false} getContainer={container}>
                 <p>抽屉里的内容</p>
             </Drawer>,
-            { container }
+            { container },
         );
 
         const mask = wrapper.container.querySelector(".xy-drawer-mask");
@@ -91,7 +91,7 @@ describe("Drawer", () => {
             <Drawer defaultOpen={true} maskClose={false} getContainer={container}>
                 <p>抽屉里的内容</p>
             </Drawer>,
-            { container }
+            { container },
         );
         const drawer = wrapper.container.querySelector(".xy-drawer");
         const mask = wrapper.container.querySelector(".xy-drawer-mask");
@@ -108,7 +108,7 @@ describe("Drawer", () => {
             <Drawer defaultOpen={true} width="500px" getContainer={container}>
                 <p>抽屉里的内容</p>
             </Drawer>,
-            { container }
+            { container },
         );
 
         const content = wrapper.container.querySelector(".xy-drawer-content") as HTMLElement;

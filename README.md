@@ -34,7 +34,7 @@
 
 ```bash
 # yarn
-yarn add xy-drawer utils-hooks classnames
+yarn add xy-drawer
 ```
 
 ## 使用例子
@@ -55,7 +55,7 @@ import ReactDOM from "react-dom";
 import { DrawerPopup } from "xy-drawer";
 
 DrawerPopup({
-    children: <p>js弹出的抽屉</p>
+    children: <p>js弹出的抽屉</p>,
 });
 ```
 
